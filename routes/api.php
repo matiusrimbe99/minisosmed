@@ -13,9 +13,6 @@ Route::prefix('v1')->group(function () {
 
     Route::post('register', [JWTAuthController::class, 'register']);
     Route::post('login', [JWTAuthController::class, 'login']);
-//    Route::post('refresh', [JWTAuthController::class, 'refresh']);
-//    Route::post('me', [JWTAuthController::class, 'me']);
-//    Route::post('logout', [JWTAuthController::class, 'logout']);
 
     Route::middleware(JWTMiddleware::class)->prefix('posts')->group(function () {
         Route::get('/', [PostController::class, 'index']);
